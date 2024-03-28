@@ -1,0 +1,8 @@
+Oef1:
+select spelersnr, naam, count(*) aantalwedstrijden from spelers
+left join wedstrijden using(spelersnr)
+group by spelersnr, naam
+
+Oef2:
+select count(distinct spelersnr) aantal_spelers from spelers
+join wedstrijden using(spelersnr)
