@@ -1,0 +1,19 @@
+#commit:
+start transaction;
+create table r0941925.koffiekoeken (
+    id serial primary key,
+    naam varchar(50),
+    prijs decimal(5, 2),
+    beschrijving text
+);
+commit;
+
+#rollback:
+start transaction;
+create table r0941925.koffiekoeken (
+    id serial primary key,
+    naam varchar(50),
+    prijs decimal(5, 2),
+    beschrijving text
+);
+rollback;
