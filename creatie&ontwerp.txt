@@ -1,0 +1,12 @@
+CREATE TABLE Muziekgroepen (
+    GroepID INT AUTO_INCREMENT PRIMARY KEY,
+    GroepNaam VARCHAR(255) UNIQUE,
+    GroepAfkorting VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE Albums (
+    AlbumID INT AUTO_INCREMENT PRIMARY KEY,
+    AlbumNaam VARCHAR(255),
+    GroepID INT DEFAULT 1,
+    FOREIGN KEY (GroepID) REFERENCES Muziekgroepen(GroepID)
+);
