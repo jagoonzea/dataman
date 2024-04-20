@@ -1,12 +1,27 @@
-CREATE TABLE Muziekgroepen (
+START TRANSACTION;
+
+CREATE TABLE IF NOT EXISTS Muziekgroepen (
     GroepID INT AUTO_INCREMENT PRIMARY KEY,
     GroepNaam VARCHAR(255) UNIQUE,
     GroepAfkorting VARCHAR(50) UNIQUE
 );
 
-CREATE TABLE Albums (
+CREATE TABLE IF NOT EXISTS Albums (
     AlbumID INT AUTO_INCREMENT PRIMARY KEY,
     AlbumNaam VARCHAR(255),
     GroepID INT DEFAULT 1,
     FOREIGN KEY (GroepID) REFERENCES Muziekgroepen(GroepID)
 );
+
+INSERT INTO Muziekgroepen (GroepNaam, GroepAfkorting) VALUES
+('TC Matic', 'TCM'),
+('The Beatles', 'TB'),
+('Led Zeppelin', 'LZ');
+
+INSERT INTO Albums (AlbumNaam) VALUES
+('TC Matic Album 1'),
+('Let It Be', 2),
+('IV', 3),
+('TC Matic Album 2');
+
+COMMIT;
